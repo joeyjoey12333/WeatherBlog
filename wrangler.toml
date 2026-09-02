@@ -16,7 +16,7 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "weather-app-db"
-database_id = "5f158cc6e0934d1d9495796b147fadf4"
+database_id = "c209e6ca-ce10-423d-b2b2-a2b6b65e3959"
 
 # KV namespace for session tokens — free tier includes 1,000 writes/day,
 # 100,000 reads/day, 1GB storage.
