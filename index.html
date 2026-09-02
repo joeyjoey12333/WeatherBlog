@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WeatherPost</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="banners"></div>
+
+  <header class="topbar">
+    <h1>🌦️ WeatherPost</h1>
+    <div id="auth-area"></div>
+  </header>
+
+  <main id="app">
+    <section id="login-panel" class="card" hidden>
+      <h2>Join WeatherPost</h2>
+      <p class="hint">Pick a username, enter your email and age. No password needed.</p>
+      <form id="login-form">
+        <input name="username" placeholder="Username" required minlength="3" />
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="age" type="number" placeholder="Age" min="1" max="120" required />
+        <button type="submit">Continue</button>
+      </form>
+      <p id="login-error" class="error"></p>
+    </section>
+
+    <section id="admin-panel" class="card admin" hidden>
+      <h2>Admin Controls</h2>
+      <div class="admin-grid">
+        <div>
+          <h3>Maintenance mode</h3>
+          <label><input type="checkbox" id="maint-enabled" /> Enabled</label>
+          <input id="maint-message" placeholder="Maintenance message" />
+          <button id="maint-save">Save</button>
+        </div>
+        <div>
+          <h3>Update mode</h3>
+          <label><input type="checkbox" id="update-enabled" /> Enabled</label>
+          <input id="update-message" placeholder="Update message" />
+          <button id="update-save">Save</button>
+        </div>
+        <div>
+          <h3>Announcement</h3>
+          <label><input type="checkbox" id="announce-enabled" /> Active</label>
+          <input id="announce-text" placeholder="Announcement text" />
+          <button id="announce-save">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="composer" class="card" hidden>
+      <h2>Post a weather update</h2>
+      <form id="post-form">
+        <textarea name="content" placeholder="What's happening with the weather?" required maxlength="2000"></textarea>
+        <div class="post-fields">
+          <input name="location" placeholder="Location (optional)" />
+          <input name="temperature" placeholder="Temp (optional)" />
+          <input name="condition" placeholder="Condition (optional)" />
+        </div>
+        <button type="submit">Post</button>
+      </form>
+      <p id="post-error" class="error"></p>
+    </section>
+
+    <section id="feed"></section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

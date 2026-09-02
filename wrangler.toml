@@ -1,0 +1,31 @@
+name = "weather-posting-app"
+main = "src/index.js"
+compatibility_date = "2026-09-02"
+compatibility_flags = ["nodejs_compat"]
+
+# Serves everything in /public (the frontend) and lets the Worker
+# handle /api/* routes. Free on the Workers free plan.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+# D1 (SQLite) database — free tier includes 5GB storage / 5M rows read per day.
+# Create with: wrangler d1 create weather-app-db
+# then paste the database_id it prints below.
+[[d1_databases]]
+binding = "DB"
+database_name = "weather-app-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# KV namespace for session tokens — free tier includes 1,000 writes/day,
+# 100,000 reads/day, 1GB storage.
+# Create with: wrangler kv namespace create SESSIONS
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+[vars]
+# The username that automatically gets admin powers. Register this
+# username once (from an account only you control) to claim it.
+ADMIN_USERNAME = "weathercodevelopment"

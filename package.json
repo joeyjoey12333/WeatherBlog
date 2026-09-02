@@ -1,0 +1,18 @@
+{
+  "name": "weather-posting-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init:local": "wrangler d1 execute weather-app-db --local --file=./schema.sql",
+    "db:init:remote": "wrangler d1 execute weather-app-db --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "dependencies": {
+    "hono": "^4.6.0"
+  }
+}
